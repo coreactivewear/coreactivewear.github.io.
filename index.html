@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>core. activewear — girl, do it for you!</title>
+<meta name="description" content="CORE Activewear — ropa deportiva para mujer. Venezuela y Kazajistán.">
+<meta property="og:title" content="core. activewear">
+<meta property="og:description" content="girl, do it for you!">
+<meta property="og:image" content="img/comfy-2.jpg">
+<link rel="icon" type="image/png" href="img/logo-black.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --ink:#111111; --cream:#F3EADC; --cream2:#E9DCC7; --muted:#6B655E; --line:#ECE6DC;
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.display{font-family:'Fraunces',serif;font-weight:800;letter-spacing:-.02em}
+
+/* ---------- top bar ---------- */
+.announce{background:var(--ink);color:var(--cream);font-size:12.5px;letter-spacing:.06em;text-align:center;padding:8px 12px;text-transform:uppercase}
+header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo img{height:38px;width:auto}
+.nav-links{display:flex;gap:26px;font-size:14px;font-weight:500}
+.nav-links a{opacity:.75}.nav-links a:hover{opacity:1}
+.controls{display:flex;gap:8px;align-items:center}
+.pill-group{display:flex;border:1px solid var(--ink);border-radius:99px;overflow:hidden;font-size:12px;font-weight:600}
+.pill-group button{padding:6px 10px}
+.pill-group button.on{background:var(--ink);color:#fff}
+@media(max-width:860px){.nav-links{display:none}.logo img{height:32px}}
+
+/* ---------- hero ---------- */
+.hero{padding:48px 0 64px}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(46px,7vw,92px);line-height:.95;letter-spacing:-.03em;font-weight:900;margin:14px 0 20px}
+.hero p{font-size:17px;color:var(--muted);max-width:440px}
+.slogan-img{height:30px;width:auto;margin-top:26px;opacity:.95}
+.cta-row{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:99px;font-weight:600;font-size:15px;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-line{border:1.5px solid var(--ink)}
+.btn-cream{background:var(--cream);color:var(--ink)}
+.hero-img{aspect-ratio:4/5;border-radius:28px;position:relative;overflow:hidden;background:var(--cream)}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero-img .tag{position:absolute;left:16px;bottom:16px;background:#fff;padding:10px 14px;border-radius:12px;font-size:13px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.08);cursor:pointer}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:30px}.hero{background:#fff}}
+
+/* ---------- marquee ---------- */
+.marquee{overflow:hidden;white-space:nowrap;padding:16px 0;background:var(--ink);color:var(--cream)}
+.marquee span{display:inline-block;animation:scroll 30s linear infinite;font-family:'Fraunces',serif;font-weight:800;font-size:22px}
+.marquee i{font-style:normal;margin:0 22px;opacity:.6}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section{padding:76px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:30px;flex-wrap:wrap}
+.sec-head h2{font-family:'Fraunces',serif;font-size:clamp(34px,4.6vw,54px);letter-spacing:-.03em;line-height:1;font-weight:900}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:8px 16px;border:1px solid var(--ink);border-radius:99px;font-size:13px;font-weight:500}
+.chip.on{background:var(--ink);color:#fff}
+
+/* ---------- star set ---------- */
+.star{background:var(--cream)}
+.star-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.collage{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;aspect-ratio:1/1}
+.collage div{border-radius:20px;overflow:hidden;background:var(--cream2)}
+.collage div:first-child{grid-row:span 2}
+.collage img{width:100%;height:100%;object-fit:cover}
+.star h2{font-family:'Fraunces',serif;font-size:clamp(42px,5.6vw,72px);line-height:.95;letter-spacing:-.03em;font-weight:900;margin:12px 0 18px}
+.star p{color:var(--muted);font-size:16.5px;max-width:440px}
+.feat{list-style:none;margin:22px 0 28px;display:grid;gap:10px}
+.feat li{display:flex;gap:10px;align-items:center;font-size:15px}
+.feat li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink);flex:none}
+@media(max-width:860px){.star-grid{grid-template-columns:1fr}}
+
+/* ---------- product grid ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
+.card{cursor:pointer}
+.card .img{aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;position:relative;background:var(--cream)}
+.card .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .img img{transform:scale(1.04)}
+.ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:rgba(17,17,17,.35);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;text-align:center;padding:20px}
+.ph img{position:static!important;width:110px!important;height:auto!important;opacity:.25;transform:none!important}
+.badge{position:absolute;top:12px;left:12px;z-index:2;background:var(--ink);color:#fff;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:99px}
+.badge.out{background:#fff;color:var(--ink)}
+.card h3{font-size:16px;font-weight:600;margin-top:12px}
+.card .meta{display:flex;justify-content:space-between;align-items:center;margin-top:3px;gap:10px}
+.price{font-weight:600}
+.price.ask{font-weight:500;color:var(--muted);font-size:14px}
+.dots{display:flex;gap:5px}
+.dots span{width:13px;height:13px;border-radius:50%;border:1px solid rgba(0,0,0,.18)}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px}
+
+/* ---------- club ---------- */
+.club{background:var(--ink);color:#fff;border-radius:32px;padding:56px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.club h2{font-family:'Fraunces',serif;font-size:clamp(34px,4.4vw,56px);letter-spacing:-.03em;line-height:1;font-weight:900}
+.club h2 em{font-style:normal;color:var(--cream2)}
+.club p{color:#bdb6ac;margin:18px 0 26px;max-width:480px}
+.club ul{list-style:none;display:grid;gap:12px}
+.club li{border:1px solid #333;border-radius:14px;padding:14px 16px;font-size:14.5px}
+.club li b{display:block;color:var(--cream2);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:2px}
+@media(max-width:860px){.club{grid-template-columns:1fr;padding:34px 24px}}
+
+/* ---------- how to buy ---------- */
+.buy-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:24px;align-items:stretch}
+.steps{display:grid;gap:14px}
+.step{display:flex;gap:18px;border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+.step .n{font-family:'Fraunces',serif;font-weight:900;font-size:34px;line-height:1;min-width:46px}
+.step h4{font-size:17px;margin-bottom:3px}
+.step p{color:var(--muted);font-size:14.5px}
+.tote{border-radius:var(--radius);overflow:hidden;background:var(--cream)}
+.tote img{width:100%;height:100%;object-fit:cover}
+.paylist{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.paylist span{border:1px solid var(--ink);border-radius:99px;padding:6px 14px;font-size:13px;font-weight:500}
+@media(max-width:860px){.buy-grid{grid-template-columns:1fr}.tote{aspect-ratio:1/1}}
+
+/* ---------- sizes ---------- */
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{text-align:left;padding:13px 10px;border-bottom:1px solid var(--line)}
+th{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.table-wrap{overflow-x:auto;background:var(--cream);border-radius:var(--radius);padding:8px 18px}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:#fff;padding:60px 0 30px;margin-top:40px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+.foot h5{font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;color:#9a948c;font-weight:600}
+.foot a{display:block;margin-bottom:8px;font-size:15px}
+.foot a:hover{text-decoration:underline}
+.foot .logo img{height:44px}
+.foot .slogan-img{height:24px;margin-top:20px}
+.copy{margin-top:44px;font-size:12.5px;color:#9a948c;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px solid #2a2a2a;padding-top:20px}
+@media(max-width:860px){.foot{grid-template-columns:1fr}}
+
+/* ---------- modal ---------- */
+.overlay{position:fixed;inset:0;background:rgba(17,17,17,.55);z-index:60;display:none;align-items:center;justify-content:center;padding:18px}
+.overlay.open{display:flex}
+.modal{background:#fff;border-radius:26px;max-width:960px;width:100%;max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr 1fr;position:relative}
+.modal .close{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;background:#fff;font-size:20px;z-index:3;border:1px solid var(--line)}
+.gallery{background:var(--cream)}
+.gallery .main{aspect-ratio:3/4;position:relative;overflow:hidden}
+.gallery .main img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thumbs{display:flex;gap:8px;padding:10px;overflow-x:auto}
+.thumbs button{width:58px;flex:none;aspect-ratio:3/4;border-radius:8px;overflow:hidden;opacity:.55;border:2px solid transparent;background:var(--cream2)}
+.thumbs button.on{opacity:1;border-color:var(--ink)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.info{padding:34px 30px}
+.info h3{font-family:'Fraunces',serif;font-weight:900;font-size:30px;letter-spacing:-.02em;line-height:1.05}
+.info .price{font-size:20px;margin:8px 0 14px}
+.info .desc{color:var(--muted);font-size:14.5px}
+.specs{list-style:none;margin-top:12px;display:grid;gap:5px;font-size:13.5px}
+.specs li::before{content:"— ";color:var(--muted)}
+.opt-label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin:20px 0 8px;color:var(--muted)}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt{padding:9px 15px;border:1px solid var(--ink);border-radius:99px;font-size:14px;font-weight:500;display:flex;align-items:center;gap:7px}
+.opt.on{background:var(--ink);color:#fff}
+.opt i{width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.25)}
+.qty{display:flex;align-items:center;border:1px solid var(--ink);border-radius:99px;width:max-content}
+.qty button{width:38px;height:38px;font-size:18px}
+.qty span{min-width:26px;text-align:center;font-weight:600}
+.buy{display:grid;gap:9px;margin-top:22px}
+.buy .btn{width:100%}
+.btn-wa{background:#1f8f4e;color:#fff}
+.btn-kaspi{background:#e4202a;color:#fff}
+.note{font-size:12.5px;color:var(--muted);margin-top:10px}
+.hint{font-size:13px;color:#a2401b;margin-top:8px;min-height:18px}
+@media(max-width:760px){.modal{grid-template-columns:1fr}.info{padding:24px 20px}}
+</style>
+</head>
+<body>
+
+<div class="announce" id="announce"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="core. activewear"><img src="img/logo-black.png" alt="core. activewear"></a>
+    <nav class="nav-links">
+      <a href="#star" data-t="navStar"></a>
+      <a href="#shop" data-t="navShop"></a>
+      <a href="#club" data-t="navClub"></a>
+      <a href="#buy" data-t="navBuy"></a>
+      <a href="#sizes" data-t="navSizes"></a>
+    </nav>
+    <div class="controls">
+      <div class="pill-group" id="countryPick">
+        <button data-c="VE">🇻🇪 VE</button>
+        <button data-c="KZ">🇰🇿 KZ</button>
+      </div>
+      <div class="pill-group" id="langPick">
+        <button data-l="es">ES</button>
+        <button data-l="ru">RU</button>
+        <button data-l="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow" data-t="heroEyebrow"></div>
+        <h1><span data-t="heroA"></span><br><span data-t="heroB"></span></h1>
+        <p data-t="heroText"></p>
+        <div class="cta-row">
+          <a href="#shop" class="btn btn-dark" data-t="heroCta"></a>
+          <a href="#club" class="btn btn-line" data-t="heroCta2"></a>
+        </div>
+        <img class="slogan-img" src="img/slogan.png" alt="girl, do it for you!" style="filter:brightness(0)">
+      </div>
+      <div class="hero-img">
+        <img src="img/comfy-2.jpg" alt="Comfy Set — core. activewear">
+        <div class="tag" data-open="comfy-set" data-t="heroTag"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee"><span id="marquee"></span></div>
+
+  <!-- STAR SET -->
+  <section id="star" class="star">
+    <div class="wrap star-grid">
+      <div class="collage">
+        <div><img src="img/comfy-1.jpg" alt="Comfy Set" loading="lazy"></div>
+        <div><img src="img/comfy-brown.jpg" alt="Comfy Set" loading="lazy" style="object-position:center 20%"></div>
+        <div><img src="img/comfy-beige.jpg" alt="Comfy Set" loading="lazy" style="object-position:center 20%"></div>
+      </div>
+      <div>
+        <div class="eyebrow" data-t="starEyebrow"></div>
+        <h2>Comfy Set</h2>
+        <p data-t="starText"></p>
+        <ul class="feat">
+          <li data-t="starF1"></li><li data-t="starF2"></li><li data-t="starF3"></li>
+        </ul>
+        <div class="cta-row" style="margin-top:0">
+          <button class="btn btn-dark" data-open="comfy-set" data-t="starCta"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section id="shop">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-t="shopTitle"></h2>
+        <div class="filters" id="filters"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <!-- CLUB -->
+  <section id="club" style="padding-top:10px">
+    <div class="wrap">
+      <div class="club">
+        <div>
+          <div class="eyebrow" style="color:var(--cream2)">CORE CLUB</div>
+          <h2 style="margin-top:12px"><span data-t="clubA"></span><br><em data-t="clubB"></em></h2>
+          <p data-t="clubText"></p>
+          <a class="btn btn-cream" id="clubLink" target="_blank" rel="noopener" data-t="clubCta"></a>
+        </div>
+        <ul>
+          <li><b data-t="club1t"></b><span data-t="club1"></span></li>
+          <li><b data-t="club2t"></b><span data-t="club2"></span></li>
+          <li><b data-t="club3t"></b><span data-t="club3"></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO BUY -->
+  <section id="buy">
+    <div class="wrap">
+      <div class="sec-head"><h2 data-t="buyTitle"></h2></div>
+      <div class="buy-grid">
+        <div>
+          <div class="steps">
+            <div class="step"><div class="n">01</div><div><h4 data-t="s1t"></h4><p data-t="s1"></p></div></div>
+            <div class="step"><div class="n">02</div><div><h4 data-t="s2t"></h4><p data-t="s2"></p></div></div>
+            <div class="step"><div class="n">03</div><div><h4 data-t="s3t"></h4><p data-t="s3"></p></div></div>
+          </div>
+          <div class="opt-label" data-t="payTitle" style="margin-top:24px"></div>
+          <div class="paylist" id="paylist"></div>
+        </div>
+        <div class="tote"><img src="img/tote.jpg" alt="core. activewear"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIZES -->
+  <section id="sizes" style="padding-top:10px">
+    <div class="wrap">
+      <div class="sec-head"><h2 data-t="sizeTitle"></h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th data-t="thSize"></th><th data-t="thBust"></th><th data-t="thWaist"></th><th data-t="thHip"></th></tr></thead>
+          <tbody id="sizeBody"></tbody>
+        </table>
+      </div>
+      <p class="note" data-t="sizeNote"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="logo"><img src="img/logo-cream.png" alt="core. activewear"></div>
+        <img class="slogan-img" src="img/slogan-cream.png" alt="girl, do it for you!">
+      </div>
+      <div>
+        <h5 data-t="fContact"></h5>
+        <a id="fWa" target="_blank" rel="noopener">WhatsApp</a>
+        <a id="fIg" target="_blank" rel="noopener">Instagram</a>
+        <a id="fKaspi" target="_blank" rel="noopener">Kaspi</a>
+      </div>
+      <div>
+        <h5 data-t="fMore"></h5>
+        <a href="#shop" data-t="navShop"></a>
+        <a id="fClub" target="_blank" rel="noopener">CORE Club</a>
+        <a href="#sizes" data-t="navSizes"></a>
+      </div>
+    </div>
+    <div class="copy"><span>© <span id="yr"></span> CORE Activewear</span><span data-t="since"></span></div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="close" id="closeModal" aria-label="close">×</button>
+    <div class="gallery">
+      <div class="main" id="mMain"></div>
+      <div class="thumbs" id="mThumbs"></div>
+    </div>
+    <div class="info">
+      <div class="eyebrow" id="mCat"></div>
+      <h3 id="mName"></h3>
+      <div class="price" id="mPrice"></div>
+      <p class="desc" id="mDesc"></p>
+      <ul class="specs" id="mSpecs"></ul>
+      <div class="opt-label" data-t="color"></div>
+      <div class="opts" id="mColors"></div>
+      <div class="opt-label" data-t="size"></div>
+      <div class="opts" id="mSizes"></div>
+      <div class="opt-label" data-t="qty"></div>
+      <div class="qty"><button id="qMinus">−</button><span id="qVal">1</span><button id="qPlus">+</button></div>
+      <div class="hint" id="mHint"></div>
+      <div class="buy" id="mBuy"></div>
+      <p class="note" id="mNote"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =========================================================================
+   CONFIGURACIÓN — EDITA AQUÍ
+   ========================================================================= */
+const CONFIG = {
+  clubUrl: "https://coreactivewear.github.io/CLUB/",
+  countries: {
+    VE: {
+      currency: "USD",
+      whatsapp: "584242992588",          // WhatsApp de CORE Venezuela (Linktree)
+      instagram: "coreactivewear_",
+      kaspiShop: "",
+      payments: ["Pago Móvil", "Zelle", "Binance", "Efectivo USD"],   // TODO: confirmar
+      shipping: { es: "Envíos a toda Venezuela", ru: "Доставка по всей Венесуэле", en: "Shipping across Venezuela" }
+    },
+    KZ: {
+      currency: "KZT",
+      whatsapp: "34661124294",            // TODO: número de Kazajistán (ej. 7701...)
+      instagram: "coreactivewear_kz",
+      kaspiShop: "",                       // TODO: enlace a tu tienda en Kaspi Magazine
+      payments: ["Kaspi Pay", "Kaspi Red", "Перевод Kaspi"],          // TODO: confirmar
+      shipping: { es: "Envíos a todo Kazajistán", ru: "Доставка по всему Казахстану", en: "Shipping across Kazakhstan" }
+    }
+  }
+};
+
+/* -------------------------------------------------------------------------
+   PRODUCTOS
+   price: { VE: precio en USD, KZ: precio en ₸ }  → null = "Consultar precio"
+   stock: { VE: true/false, KZ: true/false }
+   images: fotos propias en img/ (recomendado) o enlaces.
+   kaspi: enlace al producto en Kaspi. payLink: enlace de pago online (opcional).
+   ------------------------------------------------------------------------- */
+const MIC = "https://image.made-in-china.com/";
+const COL = {
+  black:{n:{es:"Negro",ru:"Чёрный",en:"Black"},hex:"#111111"},
+  beige:{n:{es:"Beige",ru:"Бежевый",en:"Beige"},hex:"#D8C6AA"},
+  cream:{n:{es:"Crema",ru:"Кремовый",en:"Cream"},hex:"#F3EADC"},
+  white:{n:{es:"Blanco",ru:"Белый",en:"White"},hex:"#FFFFFF"},
+  grey:{n:{es:"Gris",ru:"Серый",en:"Grey"},hex:"#9b9894"},
+  brown:{n:{es:"Chocolate",ru:"Шоколад",en:"Chocolate"},hex:"#5a3626"},
+  burgundy:{n:{es:"Burgundy",ru:"Бордовый",en:"Burgundy"},hex:"#6e1f2c"},
+  cherry:{n:{es:"Cereza",ru:"Вишня",en:"Cherry"},hex:"#7a2a2f"},
+  plum:{n:{es:"Ciruela",ru:"Сливовый",en:"Plum"},hex:"#5a2e3a"},
+  pink:{n:{es:"Rosa claro",ru:"Светло-розовый",en:"Light pink"},hex:"#f3dcd4"},
+  sage:{n:{es:"Salvia",ru:"Шалфей",en:"Sage"},hex:"#93a88f"},
+  lilac:{n:{es:"Lila",ru:"Лиловый",en:"Lilac"},hex:"#cbb3b8"}
+};
+
+const PRODUCTS = [
+  { id:"comfy-set", cat:"sets", star:true,
+    name:{es:"Comfy Set", ru:"Comfy Set", en:"Comfy Set"},
+    desc:{es:"Nuestro set estrella: top de tirantes con escote cuadrado + pantalón ancho con cintura elástica y cordón. Logo core. bordado.",
+          ru:"Наш хит: топ на бретелях с квадратным вырезом + широкие брюки на резинке с завязками. Вышитый логотип core.",
+          en:"Our best-seller: square-neck tank + wide-leg pants with elastic drawstring waist. Embroidered core. logo."},
+    specs:{es:["Pantalón con costura frontal que estiliza","Bolsillos laterales","Del gym al día a día"],
+           ru:["Брюки со стрелкой, которая вытягивает силуэт","Боковые карманы","Из зала — в повседневную жизнь"],
+           en:["Front seam pants for a longer silhouette","Side pockets","From the gym to everyday"]},
+    colors:[COL.black,COL.beige,COL.brown], colorImg:[1,2,3], sizes:["S","M","L"],
+    price:{VE:null, KZ:null}, stock:{VE:true, KZ:true},
+    images:["img/comfy-6.jpg","img/comfy-black.jpg","img/comfy-beige.jpg","img/comfy-brown.jpg","img/comfy-3.jpg","img/comfy-1.jpg","img/comfy-4.jpg","img/comfy-5.jpg","img/comfy-2.jpg"],
+    kaspi:"", payLink:{VE:"",KZ:""} },
+
+  { id:"wine-set", cat:"sets",
+    name:{es:"Wine Set", ru:"Wine Set", en:"Wine Set"},
+    desc:{es:"Top de tirantes finos + leggings acampanados de tiro alto, en un tono burgundy que resalta cualquier tipo de piel.",
+          ru:"Топ на тонких бретелях + клёш-леггинсы с высокой посадкой в бордовом оттенке, который подходит любой коже.",
+          en:"Thin-strap bra + high-waisted flare leggings in a burgundy shade that flatters every skin tone."},
+    specs:{es:["Control de abdomen","Copas removibles","Pierna acampanada"],
+           ru:["Утягивает живот","Съёмные чашки","Расклёшенный низ"],
+           en:["Tummy control","Removable cups","Flared leg"]},
+    colors:[COL.burgundy], sizes:["S","M","L"],
+    price:{VE:null, KZ:null}, stock:{VE:true, KZ:true},
+    images:["img/wine-1.jpg","img/wrap-1.jpg"],
+    kaspi:"", payLink:{VE:"",KZ:""} },
+
+  { id:"cherry-set", cat:"sets",
+    name:{es:"Cherry Set", ru:"Cherry Set", en:"Cherry Set"},
+    desc:{es:"Top deportivo + leggings de tiro alto color cereza con ribete blanco en contraste.",
+          ru:"Спортивный топ + леггинсы с высокой посадкой вишнёвого цвета с белым контрастным кантом.",
+          en:"Sports bra + high-waisted leggings in cherry with contrast white piping."},
+    specs:{es:["Ribete blanco en top y leggings","Cintura alta","Para gym, pilates y día a día"],
+           ru:["Белый кант на топе и леггинсах","Высокая посадка","Для зала, пилатеса и на каждый день"],
+           en:["White piping on bra and leggings","High waist","For gym, pilates and everyday"]},
+    colors:[COL.cherry], sizes:["S","M","L"],
+    price:{VE:null, KZ:null}, stock:{VE:true, KZ:true},
+    images:["img/cherry-1.jpg","img/cherry-2.jpg"],
+    kaspi:"", payLink:{VE:"",KZ:""} },
+
+  { id:"open-back-set", cat:"sets",
+    name:{es:"Set Open Back", ru:"Комплект Open Back", en:"Open Back Set"},
+    desc:{es:"Camiseta corta de manga corta con espalda abierta + pantalón ancho de tiro alto.",
+          ru:"Укороченная футболка с открытой спиной + широкие брюки с высокой посадкой.",
+          en:"Open-back cropped short-sleeve tee + high-waisted wide-leg pants."},
+    specs:{es:["78% nylon · 22% spandex","Elástico en 4 direcciones, transpirable y de secado rápido","Cintura alta que realza"],
+           ru:["78% нейлон · 22% спандекс","Тянется в 4 стороны, дышит, быстро сохнет","Высокая посадка с эффектом пуш-ап"],
+           en:["78% nylon · 22% spandex","4-way stretch, breathable, quick-dry","Lifting high waistband"]},
+    colors:[COL.plum,COL.pink], sizes:["XS","S","M","L"],
+    price:{VE:null, KZ:null}, stock:{VE:true, KZ:true},
+    images:["img/openback-1.jpg"],
+    kaspi:"", payLink:{VE:"",KZ:""} },
+
+  { id:"sage-set", cat:"sets",
+    name:{es:"Sage Set", ru:"Sage Set", en:"Sage Set"},
+    desc:{es:"Top bandeau + leggings de tiro alto en verde salvia.",
+          ru:"Топ-бандо + леггинсы с высокой посадкой цвета шалфея.",
+          en:"Bandeau top + high-waisted leggings in sage green."},
+    specs:{es:["Top sin tirantes","Cintura alta","Para gym y día a día"],
+           ru:["Топ без бретелей","Высокая посадка","Для зала и на каждый день"],
+           en:["Strapless top","High waist","For gym and everyday"]},
+    colors:[COL.sage], sizes:["S","M","L"],
+    price:{VE:null, KZ:null}, stock:{VE:true, KZ:true},
+    images:["img/sage-1.jpg"],
+    kaspi:"", payLink:{VE:"",KZ:""} },
+
+  { id:"core-jacket", cat:"sweats",
+    name:{es:"Core Jacket", ru:"Core Jacket", en:"Core Jacket"},
+    desc:{es:"Sudadera oversize con media cremallera, cuello alto y logo core. bordado.",
+          ru:"Оверсайз-свитшот на полумолнии с высоким воротом и вышитым логотипом core.",
+          en:"Oversized half-zip sweatshirt with high collar and embroidered core. logo."},
+    specs:{es:["Cremallera gruesa","Puños y bajo de canalé","Combina con el pantalón del Comfy Set"],
+           ru:["Крупная молния","Манжеты и низ в рубчик","Сочетается с брюками Comfy Set"],
+           en:["Chunky zip","Ribbed cuffs and hem","Pairs with the Comfy Set pants"]},
+    colors:[COL.black], sizes:["S","M","L"],
+    price:{VE:null, KZ:null}, stock:{VE:true, KZ:true},
+    images:["img/corejacket-1.jpg","img/corejacket-3.jpg","img/corejacket-2.jpg","img/corejacket-4.jpg"],
+    kaspi:"", payLink:{VE:"",KZ:""} },
+
+  { id:"cropped-jacket", cat:"jackets",
+    name:{es:"Chaqueta Cropped", ru:"Укороченная куртка", en:"Cropped Jacket"},
+    desc:{es:"Chaqueta corta de felpa con cremallera, puños elásticos y cordón ajustable en el bajo.",
+          ru:"Укороченная куртка из футера на молнии, с манжетами на резинке и регулируемым шнурком по низу.",
+          en:"Cropped fleece zip jacket with elastic cuffs and adjustable drawstring hem."},
+    specs:{es:["Mangas abullonadas","Cordón ajustable en el bajo","Logo core. bordado"],
+           ru:["Объёмные рукава","Регулируемый шнурок по низу","Вышитый логотип core."],
+           en:["Balloon sleeves","Adjustable drawstring hem","Embroidered core. logo"]},
+    colors:[COL.brown], sizes:["S","M","L"],
+    price:{VE:null, KZ:null}, stock:{VE:true, KZ:true},
+    images:["img/cropped-1.jpg","img/cropped-2.jpg"],
+    kaspi:"", payLink:{VE:"",KZ:""} },
+
+  { id:"polo-sweat", cat:"sweats",
+    name:{es:"Sudadera Polo", ru:"Свитшот-поло", en:"Polo Sweatshirt"},
+    desc:{es:"Sudadera corta con cuello polo y botones, súper suave.",
+          ru:"Укороченный мягкий свитшот с воротником-поло на пуговицах.",
+          en:"Super-soft cropped sweatshirt with buttoned polo collar."},
+    specs:{es:["Cuello polo con botones","Corte crop oversize","Logo core."],
+           ru:["Воротник-поло на пуговицах","Оверсайз, укороченный","Логотип core."],
+           en:["Buttoned polo collar","Oversized cropped fit","core. logo"]},
+    colors:[COL.lilac], sizes:["S","M","L"],
+    price:{VE:null, KZ:null}, stock:{VE:true, KZ:true},
+    images:["img/polo-1.jpg"],
+    kaspi:"", payLink:{VE:"",KZ:""} },
+
+  { id:"wrap-top", cat:"tops",
+    name:{es:"Top Wrap Pilates", ru:"Топ Wrap Pilates", en:"Pilates Wrap Top"},
+    desc:{es:"Top cruzado de manga larga, corto, con escote en V y lazos para atar. Perfecto para pilates y ballet fit.",
+          ru:"Укороченный топ с запахом, длинными рукавами, V-вырезом и завязками. Идеален для пилатеса и балета.",
+          en:"Cropped long-sleeve wrap top with V-neck and tie straps. Perfect for pilates and barre."},
+    specs:{es:["95% rayón · 5% spandex","Agujeros para los pulgares","Suave, elástico y transpirable"],
+           ru:["95% вискоза · 5% спандекс","Отверстия для больших пальцев","Мягкий, тянущийся, дышащий"],
+           en:["95% rayon · 5% spandex","Thumb holes","Soft, stretchy, breathable"]},
+    colors:[COL.black], sizes:["S","M","L","XL"],
+    price:{VE:null, KZ:null}, stock:{VE:true, KZ:true},
+    images:["img/wrap-1.jpg"],
+    kaspi:"", payLink:{VE:"",KZ:""} },
+
+  /* ---- Sin foto propia todavía: fotos del proveedor ---- */
+  { id:"match-set", cat:"sets",
+    name:{es:"Set Match (3 piezas)", ru:"Комплект Match (3 предмета)", en:"Match Set (3 pieces)"},
+    desc:{es:"Top deportivo + leggings de tiro alto + falda de tenis con short interior. Para pádel, tenis, pilates o gym.",
+          ru:"Спортивный топ + леггинсы с высокой посадкой + теннисная юбка с шортами. Для падела, тенниса, пилатеса и зала.",
+          en:"Sports bra + high-waisted leggings + tennis skirt with built-in shorts. For padel, tennis, pilates or gym."},
+    specs:{es:["75% nylon · 25% spandex","Top con espalda abierta, escote cuadrado y copas extraíbles","Falda con short interior y bolsillo"],
+           ru:["75% нейлон · 25% спандекс","Топ с открытой спиной, квадратным вырезом и съёмными чашками","Юбка с шортами и карманом"],
+           en:["75% nylon · 25% spandex","Open-back square-neck bra with removable pads","Skirt with liner shorts and pocket"]},
+    colors:[COL.black,COL.white], sizes:["S","M","L","XL"],
+    price:{VE:null, KZ:null}, stock:{VE:true, KZ:true},
+    images:[MIC+"202f0j00aRgBtzQlBCrH/Popular-Fashion-Three-Piece-Summer-Sports-Outfits-for-Women-Colorblock-Sports-Bra-High-Waisted-Yoga-Leggings-Tennis-Skirts-Cute-Golf-Pickleball-Activewear.webp",
+            MIC+"202f0j00CyKVhRWGgBfE/Popular-Fashion-Three-Piece-Summer-Sports-Outfits-for-Women-Colorblock-Sports-Bra-High-Waisted-Yoga-Leggings-Tennis-Skirts-Cute-Golf-Pickleball-Activewear.webp"],
+    kaspi:"", payLink:{VE:"",KZ:""} },
+
+  { id:"flare-jumpsuit", cat:"jumpsuits",
+    name:{es:"Jumpsuit Flare", ru:"Комбинезон Flare", en:"Flare Jumpsuit"},
+    desc:{es:"Mono sin mangas con escote en U, doble tirante, espalda baja y pierna acampanada.",
+          ru:"Комбинезон без рукавов с U-вырезом, двойными бретелями, открытой спиной и клёшем.",
+          en:"Sleeveless jumpsuit with plunge U-neck, double straps, low back and flared legs."},
+    specs:{es:["78% nylon · 22% spandex","Tejido grueso, no transparenta (squat-proof)","Copas extraíbles · efecto moldeador"],
+           ru:["78% нейлон · 22% спандекс","Плотная ткань, не просвечивает","Съёмные чашки · моделирующий эффект"],
+           en:["78% nylon · 22% spandex","Thick, squat-proof fabric","Removable pads · shaping fit"]},
+    colors:[COL.black,COL.beige], sizes:["S","M","L"],
+    price:{VE:null, KZ:null}, stock:{VE:true, KZ:true},
+    images:[MIC+"2f0j00RpEsFSbyfgcB/Flare-Leg-Yoga-Jumpsuit-for-Ladies-Plunge-U-Neck-Sleeveless-Workout-Unitard-with-Double-Straps-Low-Back-and-Removable-Pads-for-Pilates-and-Streetwear.jpg",
+            MIC+"202f0j00ZNKVCEQaYFGt/Flare-Leg-Yoga-Jumpsuit-for-Ladies-Plunge-U-Neck-Sleeveless-Workout-Unitard-with-Double-Straps-Low-Back-and-Removable-Pads-for-Pilates-and-Streetwear.webp"],
+    kaspi:"", payLink:{VE:"",KZ:""} },
+
+  { id:"seamless-jacket", cat:"jackets",
+    name:{es:"Chaqueta Seamless", ru:"Олимпийка Seamless", en:"Seamless Jacket"},
+    desc:{es:"Chaqueta ajustada sin costuras, cremallera completa, cuello alto y agujeros para los pulgares.",
+          ru:"Облегающая бесшовная олимпийка на молнии, со стойкой и отверстиями для больших пальцев.",
+          en:"Slim seamless full-zip jacket with stand collar and thumb holes."},
+    specs:{es:["90% nylon · 10% spandex","No transparenta · bajo curvo","Para yoga, running y gym"],
+           ru:["90% нейлон · 10% спандекс","Не просвечивает · закруглённый низ","Для йоги, бега и зала"],
+           en:["90% nylon · 10% spandex","Non-see-through · curved hem","For yoga, running and gym"]},
+    colors:[COL.black,COL.beige], sizes:["S","M","L","XL"],
+    price:{VE:null, KZ:null}, stock:{VE:true, KZ:true},
+    images:[MIC+"2f0j00rydlphCzZkUV/Wholesale-10-Colors-Lifestyle-Exercise-Outfits-Seamless-Workout-Jacket-for-Ladies-Slim-Fit-Sportswear-Tops-Full-Zipper-Yoga-Running-Coat-with-Thumb-Holes.jpg",
+            MIC+"202f0j00rOAWueMkroRh/Wholesale-10-Colors-Lifestyle-Exercise-Outfits-Seamless-Workout-Jacket-for-Ladies-Slim-Fit-Sportswear-Tops-Full-Zipper-Yoga-Running-Coat-with-Thumb-Holes.webp"],
+    kaspi:"", payLink:{VE:"",KZ:""} },
+
+  { id:"retro-jacket", cat:"jackets",
+    name:{es:"Chaqueta Retro", ru:"Куртка Retro", en:"Retro Track Jacket"},
+    desc:{es:"Chaqueta oversize estilo retro con franjas en contraste, cuello alto y cremallera completa.",
+          ru:"Оверсайз-куртка в ретро-стиле с контрастными полосками, стойкой и молнией.",
+          en:"Oversized retro track jacket with contrast stripes, stand collar and full zip."},
+    specs:{es:["82,5% poliéster · 17,5% spandex","Ligera y elástica · puños elásticos","Para entrenar, viajar o el día a día"],
+           ru:["82,5% полиэстер · 17,5% спандекс","Лёгкая и эластичная · манжеты на резинке","Для тренировок, поездок и на каждый день"],
+           en:["82.5% polyester · 17.5% spandex","Light and stretchy · elastic cuffs","For training, travel or everyday"]},
+    colors:[COL.black,COL.cream], sizes:["S","M","L","XL","2XL"],
+    price:{VE:null, KZ:null}, stock:{VE:true, KZ:true},
+    images:[MIC+"2f0j00HnuVbDzIaeRP/Retro-Fashion-Polyester-Travel-Sports-Bomber-Coat-with-Contrast-Color-Stripes-for-Women-Oversized-Track-Tops-Striped-Long-Sleeve-Zip-up-Collar-Training-Jacket.jpg",
+            MIC+"203f0j00HNuVkqrchBRD/Retro-Fashion-Polyester-Travel-Sports-Bomber-Coat-with-Contrast-Color-Stripes-for-Women-Oversized-Track-Tops-Striped-Long-Sleeve-Zip-up-Collar-Training-Jacket.webp"],
+    kaspi:"", payLink:{VE:"",KZ:""} }
+];
+
+const SIZE_TABLE = [ ["XS","76–80","58–62","84–88"], ["S","80–86","62–66","88–92"], ["M","86–92","66–72","92–98"], ["L","92–98","72–78","98–104"], ["XL","98–104","78–84","104–110"], ["2XL","104–110","84–90","110–116"] ];
+
+/* =========================================================================
+   TEXTOS
+   ========================================================================= */
+const T = {
+  es:{ announce:"Envíos en Venezuela 🇻🇪 y Kazajistán 🇰🇿 · Pide por WhatsApp", navStar:"Comfy Set", navShop:"Tienda", navClub:"CORE Club", navBuy:"Cómo comprar", navSizes:"Tallas",
+    heroEyebrow:"Activewear para mujer · desde 2021", heroA:"Entrena fuerte.", heroB:"Viste core.", heroText:"Ropa deportiva cómoda y bonita, para el gym, el pilates y todo lo demás.",
+    heroCta:"Ver colección", heroCta2:"Conoce CORE Club", heroTag:"Comfy Set ✦ ver",
+    starEyebrow:"Nuestro set estrella", starText:"El conjunto que más nos piden: cómodo como un pijama, bonito para salir a la calle. En negro, beige y chocolate.",
+    starF1:"Top de escote cuadrado que sujeta y estiliza", starF2:"Pantalón ancho con cintura elástica y cordón", starF3:"Logo core. bordado", starCta:"Pedir el Comfy Set",
+    shopTitle:"La colección", all:"Todo", sets:"Conjuntos", jackets:"Chaquetas", sweats:"Sudaderas", tops:"Tops", jumpsuits:"Monos", star:"Set estrella", soldOut:"Agotado aquí", askPrice:"Consultar precio", noProducts:"No hay productos en esta categoría.",
+    clubA:"Tu set incluye", clubB:"entrenamiento.", clubText:"CORE Club es nuestra app de entrenamiento para mujeres: rutinas, seguimiento y acompañamiento real. Al comprar un set tienes acceso con descuento.",
+    clubCta:"Entrar a CORE Club →", club1t:"Rutinas", club1:"Planes para gym y casa, sin PDFs aburridos.", club2t:"Seguimiento", club2:"Tu progreso semana a semana.", club3t:"Descuento", club3:"Acceso especial con la compra de tu set.",
+    buyTitle:"Cómo comprar", s1t:"Elige tu prenda", s1:"Escoge modelo, color y talla en la tienda.", s2t:"Envía tu pedido", s2:"Por WhatsApp, Instagram, Kaspi o paga online. El mensaje se escribe solo.", s3t:"Recíbelo", s3:"Confirmamos el pago y te lo enviamos.",
+    payTitle:"Métodos de pago", sizeTitle:"Guía de tallas", thSize:"Talla", thBust:"Busto (cm)", thWaist:"Cintura (cm)", thHip:"Cadera (cm)", sizeNote:"¿Entre dos tallas? Escríbenos y te ayudamos a elegir.",
+    color:"Color", size:"Talla", qty:"Cantidad", pickSize:"Elige una talla", orderWa:"Pedir por WhatsApp", orderIg:"Pedir por Instagram", orderKaspi:"Comprar en Kaspi", payOnline:"Pagar online",
+    unavailable:"Este producto no está disponible en este país ahora mismo. Escríbenos para avisarte cuando vuelva.", askWa:"Avísame por WhatsApp", igCopied:"Pedido copiado ✓ Pégalo en el chat de Instagram.",
+    priceTbc:"a confirmar",
+    msg:(p)=>`¡Hola CORE! 👋 Quiero pedir:\n\n• ${p.name}\n• Color: ${p.color}\n• Talla: ${p.size}\n• Cantidad: ${p.qty}\n• Total: ${p.total}\n\nPaís: ${p.country}`,
+    ask:(n)=>`¡Hola CORE! ¿Cuándo vuelve a estar disponible ${n}?`,
+    fContact:"Contacto", fMore:"Más", since:"desde 2021",
+    marquee:["girl, do it for you!","comfy set","hecho para moverte","core. activewear"] },
+  ru:{ announce:"Доставка по Венесуэле 🇻🇪 и Казахстану 🇰🇿 · Заказ в WhatsApp", navStar:"Comfy Set", navShop:"Магазин", navClub:"CORE Club", navBuy:"Как купить", navSizes:"Размеры",
+    heroEyebrow:"Спортивная одежда для женщин · с 2021", heroA:"Тренируйся сильно.", heroB:"Носи core.", heroText:"Удобная и красивая спортивная одежда — для зала, пилатеса и не только.",
+    heroCta:"Смотреть коллекцию", heroCta2:"Узнать о CORE Club", heroTag:"Comfy Set ✦ смотреть",
+    starEyebrow:"Наш хит", starText:"Комплект, который у нас просят чаще всего: удобный, как пижама, и красивый, чтобы выйти в город. Чёрный, бежевый и шоколадный.",
+    starF1:"Топ с квадратным вырезом — поддерживает и стройнит", starF2:"Широкие брюки на резинке с завязками", starF3:"Вышитый логотип core.", starCta:"Заказать Comfy Set",
+    shopTitle:"Коллекция", all:"Все", sets:"Комплекты", jackets:"Куртки", sweats:"Свитшоты", tops:"Топы", jumpsuits:"Комбинезоны", star:"Хит", soldOut:"Нет в наличии", askPrice:"Цена по запросу", noProducts:"В этой категории пока нет товаров.",
+    clubA:"Комплект +", clubB:"тренировки.", clubText:"CORE Club — наше приложение тренировок для женщин: программы, прогресс и поддержка. С покупкой комплекта — доступ со скидкой.",
+    clubCta:"Войти в CORE Club →", club1t:"Программы", club1:"Тренировки для зала и дома, без скучных PDF.", club2t:"Прогресс", club2:"Твои результаты неделя за неделей.", club3t:"Скидка", club3:"Специальный доступ при покупке комплекта.",
+    buyTitle:"Как купить", s1t:"Выбери вещь", s1:"Модель, цвет и размер — в магазине.", s2t:"Отправь заказ", s2:"Через WhatsApp, Instagram, Kaspi или онлайн-оплату. Сообщение заполнится само.", s3t:"Получи", s3:"Подтверждаем оплату и отправляем заказ.",
+    payTitle:"Способы оплаты", sizeTitle:"Таблица размеров", thSize:"Размер", thBust:"Грудь (см)", thWaist:"Талия (см)", thHip:"Бёдра (см)", sizeNote:"Между двумя размерами? Напиши нам — поможем выбрать.",
+    color:"Цвет", size:"Размер", qty:"Количество", pickSize:"Выбери размер", orderWa:"Заказать в WhatsApp", orderIg:"Заказать в Instagram", orderKaspi:"Купить в Kaspi", payOnline:"Оплатить онлайн",
+    unavailable:"Сейчас этого товара нет в этой стране. Напиши нам — сообщим, когда появится.", askWa:"Сообщить в WhatsApp", igCopied:"Заказ скопирован ✓ Вставь его в чат Instagram.",
+    priceTbc:"уточнить",
+    msg:(p)=>`Здравствуйте, CORE! 👋 Хочу заказать:\n\n• ${p.name}\n• Цвет: ${p.color}\n• Размер: ${p.size}\n• Количество: ${p.qty}\n• Итого: ${p.total}\n\nСтрана: ${p.country}`,
+    ask:(n)=>`Здравствуйте, CORE! Когда снова будет в наличии ${n}?`,
+    fContact:"Контакты", fMore:"Ещё", since:"с 2021",
+    marquee:["girl, do it for you!","comfy set","создано для движения","core. activewear"] },
+  en:{ announce:"Shipping in Venezuela 🇻🇪 & Kazakhstan 🇰🇿 · Order on WhatsApp", navStar:"Comfy Set", navShop:"Shop", navClub:"CORE Club", navBuy:"How to buy", navSizes:"Sizes",
+    heroEyebrow:"Women's activewear · since 2021", heroA:"Train hard.", heroB:"Wear core.", heroText:"Comfortable, beautiful activewear for the gym, pilates and everything in between.",
+    heroCta:"Shop the collection", heroCta2:"Discover CORE Club", heroTag:"Comfy Set ✦ view",
+    starEyebrow:"Our best-seller", starText:"The set everyone asks for: comfy like loungewear, pretty enough to wear out. In black, beige and chocolate.",
+    starF1:"Square-neck tank that supports and flatters", starF2:"Wide-leg pants with elastic drawstring waist", starF3:"Embroidered core. logo", starCta:"Order the Comfy Set",
+    shopTitle:"The collection", all:"All", sets:"Sets", jackets:"Jackets", sweats:"Sweatshirts", tops:"Tops", jumpsuits:"Jumpsuits", star:"Best-seller", soldOut:"Sold out here", askPrice:"Price on request", noProducts:"No products in this category yet.",
+    clubA:"Your set comes", clubB:"with training.", clubText:"CORE Club is our women's training app: programs, progress tracking and real coaching. Buy a set and get discounted access.",
+    clubCta:"Enter CORE Club →", club1t:"Programs", club1:"Gym and home plans — no boring PDFs.", club2t:"Tracking", club2:"Your progress, week by week.", club3t:"Discount", club3:"Special access with your set.",
+    buyTitle:"How to buy", s1t:"Pick your piece", s1:"Choose style, color and size in the shop.", s2t:"Send your order", s2:"Via WhatsApp, Instagram, Kaspi or pay online. The message writes itself.", s3t:"Get it", s3:"We confirm payment and ship it to you.",
+    payTitle:"Payment methods", sizeTitle:"Size guide", thSize:"Size", thBust:"Bust (cm)", thWaist:"Waist (cm)", thHip:"Hips (cm)", sizeNote:"Between sizes? Message us and we'll help you choose.",
+    color:"Color", size:"Size", qty:"Quantity", pickSize:"Pick a size", orderWa:"Order on WhatsApp", orderIg:"Order on Instagram", orderKaspi:"Buy on Kaspi", payOnline:"Pay online",
+    unavailable:"This item isn't available in this country right now. Message us and we'll let you know when it's back.", askWa:"Notify me on WhatsApp", igCopied:"Order copied ✓ Paste it in the Instagram chat.",
+    priceTbc:"to confirm",
+    msg:(p)=>`Hi CORE! 👋 I'd like to order:\n\n• ${p.name}\n• Color: ${p.color}\n• Size: ${p.size}\n• Quantity: ${p.qty}\n• Total: ${p.total}\n\nCountry: ${p.country}`,
+    ask:(n)=>`Hi CORE! When will ${n} be back in stock?`,
+    fContact:"Contact", fMore:"More", since:"since 2021",
+    marquee:["girl, do it for you!","comfy set","made to move","core. activewear"] }
+};
+
+/* =========================================================================
+   LÓGICA
+   ========================================================================= */
+const store = { get(k){try{return localStorage.getItem(k)}catch(e){return null}}, set(k,v){try{localStorage.setItem(k,v)}catch(e){}} };
+const params = new URLSearchParams(location.search);
+const nl = (navigator.language||"es").toLowerCase();
+let lang = params.get("lang") || store.get("core_lang") || (nl.startsWith("ru")||nl.startsWith("kk")?"ru":nl.startsWith("en")?"en":"es");
+let country = (params.get("c")||"").toUpperCase() || store.get("core_country") || (lang==="ru"?"KZ":"VE");
+if(!T[lang]) lang="es"; if(!CONFIG.countries[country]) country="VE";
+let filter = "all";
+let current = null, sel = {color:0,size:null,qty:1,img:0};
+
+const $ = s=>document.querySelector(s);
+const t = k=>T[lang][k];
+const C = ()=>CONFIG.countries[country];
+const hasPrice = p=> p.price[country]!=null;
+const fmt = n=> country==="KZ" ? n.toLocaleString("ru-RU").replace(/ |,/g," ")+" ₸" : "$"+n;
+const priceHTML = p=> hasPrice(p) ? `<span class="price">${fmt(p.price[country])}</span>` : `<span class="price ask">${t("askPrice")}</span>`;
+const PH = `<div class="ph"><img src="img/logo-black.png" alt=""><span></span></div>`;
+const imgTag = (src,alt,lazy=true)=> `${PH}<img src="${src}" alt="${alt}" ${lazy?'loading="lazy"':''} referrerpolicy="no-referrer" onerror="this.remove()">`;
+
+function render(){
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-t]").forEach(el=>{ const v=t(el.dataset.t); if(typeof v==="string") el.textContent=v; });
+  $("#announce").textContent = t("announce");
+  document.querySelectorAll("#langPick button").forEach(b=>b.classList.toggle("on",b.dataset.l===lang));
+  document.querySelectorAll("#countryPick button").forEach(b=>b.classList.toggle("on",b.dataset.c===country));
+  const m = t("marquee").map(x=>`${x}<i>✦</i>`).join(""); $("#marquee").innerHTML = m+m+m+m;
+
+  const cats = ["all",...new Set(PRODUCTS.map(p=>p.cat))];
+  $("#filters").innerHTML = cats.map(c=>`<button class="chip ${c===filter?'on':''}" data-f="${c}">${t(c)||c}</button>`).join("");
+
+  const list = PRODUCTS.filter(p=>filter==="all"||p.cat===filter);
+  $("#grid").innerHTML = list.length ? list.map(p=>{
+    const inStock = p.stock[country];
+    const badge = !inStock ? `<span class="badge out">${t("soldOut")}</span>` : p.star ? `<span class="badge">★ ${t("star")}</span>` : "";
+    return `<article class="card" data-open="${p.id}">
+      <div class="img">${imgTag(p.images[0]||"",p.name[lang])}${badge}</div>
+      <h3>${p.name[lang]}</h3>
+      <div class="meta">${priceHTML(p)}<span class="dots">${p.colors.map(c=>`<span style="background:${c.hex}"></span>`).join("")}</span></div>
+    </article>`;}).join("") : `<div class="empty">${t("noProducts")}</div>`;
+
+  $("#paylist").innerHTML = C().payments.map(x=>`<span>${x}</span>`).join("") + `<span>${C().shipping[lang]}</span>`;
+  $("#sizeBody").innerHTML = SIZE_TABLE.map(r=>`<tr>${r.map((c,i)=>i?`<td>${c}</td>`:`<td><b>${c}</b></td>`).join("")}</tr>`).join("");
+
+  $("#clubLink").href = CONFIG.clubUrl+"?lang="+lang; $("#fClub").href = CONFIG.clubUrl;
+  $("#fWa").href = "https://wa.me/"+C().whatsapp;
+  $("#fIg").href = "https://instagram.com/"+C().instagram; $("#fIg").textContent = "Instagram @"+C().instagram;
+  $("#fKaspi").style.display = C().kaspiShop ? "block":"none"; $("#fKaspi").href = C().kaspiShop||"#";
+  $("#yr").textContent = new Date().getFullYear();
+  if(current) renderModal();
+}
+
+function openModal(id){
+  current = PRODUCTS.find(p=>p.id===id); if(!current) return;
+  sel={color:0,size:null,qty:1,img:0};
+  renderModal(); $("#overlay").classList.add("open"); document.body.style.overflow="hidden";
+}
+function closeModal(){ $("#overlay").classList.remove("open"); document.body.style.overflow=""; current=null; }
+
+function orderData(){
+  const p=current;
+  return { name:p.name[lang], color:p.colors[sel.color].n[lang], size:sel.size, qty:sel.qty,
+    total: hasPrice(p) ? fmt(p.price[country]*sel.qty) : t("priceTbc"),
+    country: country==="KZ"?"Kazajistán / Казахстан":"Venezuela" };
+}
+
+function renderModal(){
+  const p=current, inStock=p.stock[country];
+  $("#mMain").innerHTML = imgTag(p.images[sel.img]||"",p.name[lang],false);
+  $("#mThumbs").innerHTML = p.images.length>1 ? p.images.map((s,i)=>`<button class="${i===sel.img?'on':''}" data-img="${i}"><img src="${s}" alt="" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></button>`).join("") : "";
+  $("#mCat").textContent = t(p.cat)||p.cat;
+  $("#mName").textContent = p.name[lang];
+  $("#mPrice").innerHTML = priceHTML(p);
+  $("#mDesc").textContent = p.desc[lang];
+  $("#mSpecs").innerHTML = (p.specs?.[lang]||[]).map(s=>`<li>${s}</li>`).join("");
+  $("#mColors").innerHTML = p.colors.map((c,i)=>`<button class="opt ${i===sel.color?'on':''}" data-color="${i}"><i style="background:${c.hex}"></i>${c.n[lang]}</button>`).join("");
+  $("#mSizes").innerHTML = p.sizes.map(s=>`<button class="opt ${s===sel.size?'on':''}" data-size="${s}">${s}</button>`).join("");
+  $("#qVal").textContent = sel.qty;
+  $("#mHint").textContent = ""; $("#mHint").style.color="";
+  let html="";
+  if(!inStock){
+    $("#mNote").textContent = t("unavailable");
+    html = `<a class="btn btn-wa" href="https://wa.me/${C().whatsapp}?text=${encodeURIComponent(t("ask")(p.name[lang]))}" target="_blank" rel="noopener">${t("askWa")}</a>`;
+  } else {
+    $("#mNote").textContent = C().payments.join(" · ");
+    html += `<button class="btn btn-wa" data-act="wa">${t("orderWa")}</button>`;
+    html += `<button class="btn btn-line" data-act="ig">${t("orderIg")}</button>`;
+    if(country==="KZ" && (p.kaspi||C().kaspiShop)) html += `<a class="btn btn-kaspi" href="${p.kaspi||C().kaspiShop}" target="_blank" rel="noopener">${t("orderKaspi")}</a>`;
+    if(p.payLink && p.payLink[country]) html += `<a class="btn btn-dark" href="${p.payLink[country]}" target="_blank" rel="noopener">${t("payOnline")}</a>`;
+  }
+  $("#mBuy").innerHTML = html;
+}
+
+function needSize(){ if(!sel.size){ $("#mHint").style.color=""; $("#mHint").textContent = t("pickSize"); return true;} return false; }
+
+document.addEventListener("click",e=>{
+  const op=e.target.closest("[data-open]"); if(op) return openModal(op.dataset.open);
+  const f=e.target.closest("[data-f]"); if(f){ filter=f.dataset.f; return render(); }
+  const l=e.target.closest("[data-l]"); if(l){ lang=l.dataset.l; store.set("core_lang",lang); return render(); }
+  const c=e.target.closest("[data-c]"); if(c){ country=c.dataset.c; store.set("core_country",country); return render(); }
+  if(!current) return;
+  const col=e.target.closest("[data-color]"); if(col){ sel.color=+col.dataset.color; if(current.colorImg && current.colorImg[sel.color]!=null) sel.img=current.colorImg[sel.color]; return renderModal(); }
+  const sz=e.target.closest("[data-size]"); if(sz){ sel.size=sz.dataset.size; return renderModal(); }
+  const im=e.target.closest("[data-img]"); if(im){ sel.img=+im.dataset.img; return renderModal(); }
+  const act=e.target.closest("[data-act]");
+  if(act){
+    if(needSize()) return;
+    const text = t("msg")(orderData());
+    if(act.dataset.act==="wa") window.open(`https://wa.me/${C().whatsapp}?text=${encodeURIComponent(text)}`,"_blank");
+    if(act.dataset.act==="ig"){
+      const go=()=>window.open(`https://ig.me/m/${C().instagram}`,"_blank");
+      (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).then(()=>{$("#mHint").style.color="#1f8f4e";$("#mHint").textContent=t("igCopied");setTimeout(go,700);}).catch(go);
+    }
+  }
+});
+$("#qMinus").onclick=()=>{ if(sel.qty>1){sel.qty--; $("#qVal").textContent=sel.qty;} };
+$("#qPlus").onclick=()=>{ sel.qty++; $("#qVal").textContent=sel.qty; };
+$("#closeModal").onclick=closeModal;
+$("#overlay").addEventListener("click",e=>{ if(e.target.id==="overlay") closeModal(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeModal(); });
+
+render();
+</script>
+</body>
+</html>
